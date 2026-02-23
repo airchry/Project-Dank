@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap');
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.metal-slug-title {
+  font-family: 'Bungee', cursive;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 
+    3px 3px 0 #000,
+    4px 4px 0 rgba(236, 72, 153, 0.5),
+    5px 5px 0 rgba(251, 146, 60, 0.3);
+}
+
+.retro-border {
+  border: 3px solid;
+  border-image: linear-gradient(135deg, #ec4899, #fb923c, #fbbf24) 1;
+  box-shadow: 
+    inset 0 0 10px rgba(236, 72, 153, 0.3),
+    0 0 20px rgba(236, 72, 153, 0.2);
+}
