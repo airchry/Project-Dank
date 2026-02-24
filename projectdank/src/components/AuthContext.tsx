@@ -13,7 +13,9 @@ type AuthContextType = {
   loading: boolean
 }
 
-export const AuthContext = createContext<AuthContextType | null>(null)
+export const AuthContext = createContext<AuthContextType>(
+  {} as AuthContextType
+)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
