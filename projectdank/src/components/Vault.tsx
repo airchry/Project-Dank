@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Play, Image as ImageIcon, Filter, Upload, X } from "lucide-react"
+import { Play, Image as ImageIcon, Filter, X } from "lucide-react"
 // import UploadClipModal from "./UploadClipModal"
 import api from "../Api"
 
@@ -76,7 +76,7 @@ function Vault() {
           Kenangan chaos yang abadi.
         </p>
 
-        <div className="pt-2">
+        {/* <div className="pt-2">
           <button
             onClick={() => setIsUploadModalOpen(true)}
             className="bg-gradient-to-r from-orange-600 to-orange-500 text-white px-6 py-3 rounded-lg inline-flex items-center gap-2 text-sm"
@@ -84,7 +84,7 @@ function Vault() {
             <Upload className="w-5 h-5" />
             Upload Clip
           </button>
-        </div>
+        </div> */}
 
         {/* <UploadClipModal
           isOpen={isUploadModalOpen}
