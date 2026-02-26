@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Play, Image as ImageIcon, Filter, Upload, X } from "lucide-react"
-import UploadClipModal from "./UploadClipModal"
+// import UploadClipModal from "./UploadClipModal"
 import api from "../Api"
 
 type VideoProps = {
@@ -22,7 +22,7 @@ type VideoProps = {
 function Vault() {
   const [filter, setFilter] = useState<"all" | "image" | "video">("all")
   const [selectedGame, setSelectedGame] = useState("all")
-  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false)
+  // const [isUploadModalOpen, setIsUploadModalOpen] = useState(false)
   const [videos, setVideos] = useState<VideoProps[]>([])
   const [activeVideo, setActiveVideo] = useState<VideoProps | null>(null)
 
@@ -34,10 +34,10 @@ function Vault() {
     return typeMatch && gameMatch
   })
 
-  const handleUploadClip = async (data: FormData) => {
-    await api.post("/upload/upload", data)
-    fetchVault()
-  }
+  // const handleUploadClip = async (data: FormData) => {
+  //   await api.post("/upload/upload", data)
+  //   fetchVault()
+  // }
 
   const fetchVault = async () => {
     const res = await api.get("/vault/vault")
@@ -86,11 +86,11 @@ function Vault() {
           </button>
         </div>
 
-        <UploadClipModal
+        {/* <UploadClipModal
           isOpen={isUploadModalOpen}
           onClose={() => setIsUploadModalOpen(false)}
           onSubmit={handleUploadClip}
-        />
+        /> */}
       </div>
 
       {/* STATS */}

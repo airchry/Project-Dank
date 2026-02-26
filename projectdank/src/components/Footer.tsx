@@ -6,7 +6,7 @@ function Footer() {
               Dank Meme Community • Private Co-op Gaming Hub • Est. 2026
             </p>
             <p className="text-gray-600 text-xs mt-2">
-              "In chaos we trust."
+              "In meme we trust."
             </p>
           </div>
         </footer>

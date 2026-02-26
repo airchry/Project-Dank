@@ -128,7 +128,7 @@ function Home() {
                                 {currentQuote}
                             </p>
                             <p className="text-sm text-orange-400 mt-4 metal-slug-title text-xs">
-                                - Chaos of the day
+                                - Quote of the day
                             </p>
                         </div>
                     </div>

@@ -63,8 +63,8 @@ function Crew() {
       <div className="text-center space-y-4">
         <h1 className="text-4xl text-pink-500">The Crew</h1>
         <p className="text-gray-400 max-w-2xl mx-auto">
-          Meet the chaos makers. Squad yang udah kayak keluarga, complete dengan
-          inside jokes dan trauma gaming bareng.
+          Meet the meme makers. Squad yang udah kayak keluarga, complete dengan
+          inside jokes.
         </p>
       </div>
 

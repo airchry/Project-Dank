@@ -167,7 +167,7 @@ function Feed() {
             <div className="text-center space-y-4">
                 <h1 className="text-4xl text-pink-500">Community Feed</h1>
                 <p className="text-gray-400">
-                    Updates & chaos dari crew.
+                    Updates & memes dari crew.
                 </p>
             </div>
 
