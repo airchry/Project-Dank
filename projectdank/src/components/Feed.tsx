@@ -30,6 +30,7 @@ function Feed() {
     const [loadingMore, setLoadingMore] = useState(false)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const [posting, setPosting] = useState(false)
 
     const LIMIT = 5
 
@@ -74,26 +75,30 @@ function Feed() {
 
     // ================= SUBMIT POST =================
     const submitStatus = async (e: any) => {
-        e.preventDefault()
-        if (!text.trim()) return
+    e.preventDefault()
+    if (!text.trim() || posting) return
 
-        try {
-            const res = await api.post("/feedupdate", { text })
+    try {
+        setPosting(true)
 
-            const newPost = {
-                ...res.data,
-                likes: 0,
-                comments: 0,
-                liked: false,
-                comment_list: []
-            }
+        const res = await api.post("/feedupdate", { text })
 
-            setStatuses(prev => [newPost, ...prev])
-            setText("")
-        } catch (err) {
-            console.error(err)
+        const newPost = {
+            ...res.data,
+            likes: 0,
+            comments: 0,
+            liked: false,
+            comment_list: []
         }
+
+        setStatuses(prev => [newPost, ...prev])
+        setText("")
+    } catch (err) {
+        console.error(err)
+    } finally {
+        setPosting(false)
     }
+}
 
     // ================= LOAD MORE =================
     const loadMore = async () => {
@@ -194,7 +199,7 @@ function Feed() {
                 <div className="border border-pink-900/30 bg-pink-950/5 rounded-lg p-4">
                     <form onSubmit={submitStatus}>
                         <textarea
-                            placeholder="Share your chaos..."
+                            placeholder="Share your memes..."
                             value={text}
                             onChange={(e) => setText(e.target.value)}
                             className="
@@ -215,9 +220,15 @@ function Feed() {
                         <div className="flex justify-end mt-2">
                             <button
                                 type="submit"
-                                className="px-4 py-2 bg-pink-500/20 border border-pink-500/30 text-pink-400 rounded-lg"
+                                disabled={posting}
+                                className={`
+                                    px-4 py-2 rounded-lg transition
+                                    ${posting
+                                        ? "bg-gray-700 border-gray-600 text-gray-400 cursor-not-allowed"
+                                        : "bg-pink-500/20 border border-pink-500/30 text-pink-400 hover:bg-pink-500/30"}
+                                `}
                             >
-                                Post
+                                {posting ? "Posting..." : "Post"}
                             </button>
                         </div>
                     </form>
