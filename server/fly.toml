@@ -6,6 +6,9 @@
 app = 'server-young-feather-714'
 primary_region = 'sin'
 
+[processes]
+  app = "npm start"
+
 [build]
 
 [http_service]

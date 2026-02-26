@@ -65,7 +65,7 @@ function Navbar() {
         <div className="flex items-center justify-between">
           {/* LOGO */}
           <Link to="/" className="flex items-center gap-2 group">
-            <Skull className="w-8 h-8 text-pink-500 group-hover:text-pink-400 transition-colors" />
+            <img src='./logo.png' className='w-8 h-8 text-pink-500 group-hover:text-pink-400 transition-colors'/>
             <div>
               <h1 className="text-sm metal-slug-title text-pink-500 group-hover:text-orange-400 transition-colors">
                 DANK MEME

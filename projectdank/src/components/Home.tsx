@@ -107,7 +107,7 @@ function Home() {
             {/* Header */}
             <section className="text-center py-12 space-y-6">
                 <div className="flex items-center justify-center gap-3 mb-4">
-                    <Skull className="w-16 h-16 text-pink-500 animate-pulse" />
+                    <img src='./logo.png' className='w-16 h-16 text-pink-500 animate-pulse'/>
                 </div>
                 <h1 className="text-4xl md:text-6xl text-pink-500 tracking-tight mb-4 metal-slug-title">
                     DANK MEME

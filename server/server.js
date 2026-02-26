@@ -26,14 +26,16 @@ app.use(cors({
   credentials: true
 }));
 
+app.set("trust proxy", 1);
+
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 24 * 60 * 60 * 1000,
-    secure: false,
-    sameSite: "lax",
+    secure: true,
+    sameSite: "none",
+    httpOnly: true
   }
 }));
 
@@ -88,6 +90,17 @@ app.use("/uploads", express.static(path.resolve("uploads")));
 
 app.get("/", (req, res) => {
   res.send("Backend is running.");
+});
+
+app.get("/test-users", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM users");
+    console.log("DATA:", result.rows);
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.listen(port, "0.0.0.0", () => {
