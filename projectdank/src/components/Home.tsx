@@ -1,4 +1,4 @@
-import { Skull, ChevronRight, Gamepad2 } from 'lucide-react';
+import { ChevronRight, Gamepad2 } from 'lucide-react';
 import { useEffect, useState, useContext } from "react";
 import { Link } from 'react-router';
 import api from '../Api';
