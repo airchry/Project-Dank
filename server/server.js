@@ -32,10 +32,12 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+  rolling: true, // refresh expiry tiap request
   cookie: {
     secure: true,
     sameSite: "none",
-    httpOnly: true
+    httpOnly: true,
+    maxAge: 60 * 60 * 1000
   }
 }));
 
