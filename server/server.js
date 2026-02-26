@@ -6,6 +6,8 @@ import { Strategy as DiscordStrategy } from "passport-discord";
 import path from "path";
 import dotenv from "dotenv";
 import pool from "./pool.js";
+import { createClient } from "redis";
+import RedisStore from "connect-redis";
 
 // import routes
 import feedRoutes from "./routes/feedRoutes.js";
@@ -28,11 +30,21 @@ app.use(cors({
 
 app.set("trust proxy", 1);
 
+const redisClient = createClient({
+  url: process.env.REDIS_URL
+});
+await redisClient.connect();
+
+const redisStore = new RedisStore({
+  client: redisClient
+});
+
 app.use(session({
+  store: redisStore,
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  rolling: true, // refresh expiry tiap request
+  rolling: true,
   cookie: {
     secure: true,
     sameSite: "none",

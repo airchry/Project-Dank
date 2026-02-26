@@ -13,6 +13,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",
     "axios": "^1.13.5",
+    "connect-redis": "^9.0.0",
     "cors": "^2.8.6",
     "crypto": "^1.0.1",
     "dotenv": "^17.2.4",
@@ -24,6 +25,7 @@
     "passport": "^0.7.0",
     "passport-discord": "^0.1.4",
     "pg": "^8.18.0",
+    "redis": "^5.11.0",
     "supabase": "^2.76.2"
   },
   "devDependencies": {
